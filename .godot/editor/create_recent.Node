@@ -1,0 +1,14 @@
+MeshInstance3D
+NavigationRegion3D
+Label3D
+CollisionShape3D
+Camera3D
+CharacterBody3D
+DirectionalLight3D
+StaticBody3D
+Label
+Button
+VBoxContainer
+CenterContainer
+TextureRect
+CanvasLayer

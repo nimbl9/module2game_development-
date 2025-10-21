@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://wsl0j8nibipu"]
+
+[ext_resource type="Script" uid="uid://btluu3rvcd5ld" path="res://mouse/mouse.gd" id="1_5e6jn"]
+[ext_resource type="PackedScene" uid="uid://bejw3a1wqw334" path="res://models/rat.glb" id="2_4c4w8"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_784w7"]
+
+[node name="Mouse" type="CharacterBody3D"]
+script = ExtResource("1_5e6jn")
+
+[node name="Model" parent="." instance=ExtResource("2_4c4w8")]
+transform = Transform3D(0.052991927, 0.08480481, 0, -0.08480481, 0.052991927, 0, 0, 0, 0.1, 0, 0.15261503, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(-1.7484556e-08, -0.4, 0, 0.4, -1.7484556e-08, 0, 0, 0, 0.4, -0.038674414, 0.16901332, -0.00038605928)
+shape = SubResource("CapsuleShape3D_784w7")
+
+[node name="HPLabel" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+billboard = 1
+font_size = 64

@@ -1,0 +1,11 @@
+res://menu/main_menu.tscn
+res://addons/fpc/character.tscn
+res://main.tscn
+res://cat/cat.tscn
+res://cat/cat.gd
+res://cat/camera_3d.gd
+res://models/mouse.tscn
+res://models/mouse.gd
+res://mouse/mouse.tscn
+res://addons/simplegrasstextured/singleton.tscn
+res://mouse/mouse.gd
