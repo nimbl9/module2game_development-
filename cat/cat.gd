@@ -13,31 +13,25 @@ extends CharacterBody3D
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 
 func _ready():
-	# Захватываем мышь
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	add_to_group("player")
 
 func _input(event):
-	# Управление камерой мышкой
 	if event is InputEventMouseMotion and Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED:
 		rotate_y(-event.relative.x * mouse_sensitivity)
 		camera.rotate_x(-event.relative.y * mouse_sensitivity)
 		camera.rotation.x = clamp(camera.rotation.x, -PI/2, PI/2)
 	
-	# Выход (для тестирования)
 	if event.is_action_pressed("ui_cancel"):
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 
 func _physics_process(delta):
-	# Гравитация
 	if not is_on_floor():
 		velocity.y -= gravity * delta
 	
-	# Прыжок
 	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
 		velocity.y = jump_velocity
 	
-	# Движение
 	var input_dir = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
 	var direction = (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
 	
@@ -50,20 +44,17 @@ func _physics_process(delta):
 	
 	move_and_slide()
 	
-	# Атака
 	attack_timer -= delta
 	if Input.is_action_just_pressed("attack") and attack_timer <= 0:
 		attack()
 		attack_timer = attack_cooldown
 
 func attack():
-	print("Кот атакует!")
+	print("кот атакует!")
 	
-	# Ищем мышей в радиусе атаки
 	var space_state = get_world_3d().direct_space_state
 	var query = PhysicsShapeQueryParameters3D.new()
 	
-	# Создаем сферу для проверки
 	var shape = SphereShape3D.new()
 	shape.radius = attack_range
 	query.shape = shape
@@ -77,4 +68,4 @@ func attack():
 		var collider = result.collider
 		if collider.has_method("take_damage") and collider != self:
 			collider.take_damage(attack_damage)
-			print("Попадание!")
+			print("попадание!")
