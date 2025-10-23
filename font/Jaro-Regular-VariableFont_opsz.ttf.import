@@ -3,12 +3,12 @@
 importer="font_data_dynamic"
 type="FontFile"
 uid="uid://crxqyvmyb2uuc"
-path="res://.godot/imported/Jaro-Regular-VariableFont_opsz.ttf-5b71bf1a32d40218b9ab40820bdb22b3.fontdata"
+path="res://.godot/imported/Jaro-Regular-VariableFont_opsz.ttf-0a394ec020dc976ca873366dfab5f5bc.fontdata"
 
 [deps]
 
-source_file="res://models/font/Jaro-Regular-VariableFont_opsz.ttf"
-dest_files=["res://.godot/imported/Jaro-Regular-VariableFont_opsz.ttf-5b71bf1a32d40218b9ab40820bdb22b3.fontdata"]
+source_file="res://font/Jaro-Regular-VariableFont_opsz.ttf"
+dest_files=["res://.godot/imported/Jaro-Regular-VariableFont_opsz.ttf-0a394ec020dc976ca873366dfab5f5bc.fontdata"]
 
 [params]
 

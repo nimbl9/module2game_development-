@@ -13,6 +13,10 @@ var wander_direction: Vector3 = Vector3.ZERO
 var is_fleeing: bool = false
 var hp_label: Label3D = null
 
+var hit_sound: AudioStreamPlayer3D
+var death_sound: AudioStreamPlayer3D
+var is_dead: bool = false
+
 enum State { WANDER, FLEE }
 var current_state: State = State.WANDER
 
@@ -24,7 +28,13 @@ func _ready():
 	if hp_label:
 		_update_hp_label()
 
+	hit_sound = get_node_or_null("HitSound")
+	death_sound = get_node_or_null("DeathSound")
+
 func _physics_process(delta):
+	if is_dead:
+		return
+
 	if hp <= 0:
 		die()
 		return
@@ -54,7 +64,6 @@ func _physics_process(delta):
 
 func wander(delta):
 	current_speed = walk_speed
-
 	wander_timer -= delta
 	
 	if wander_timer <= 0:
@@ -76,14 +85,12 @@ func can_see_player() -> bool:
 		return false
 	
 	var distance = global_position.distance_to(player.global_position)
-	
 	if distance > detection_range:
 		return false
 	
 	var direction_to_player = (player.global_position - global_position).normalized()
 	var forward = -global_transform.basis.z.normalized()
 	var angle = rad_to_deg(acos(forward.dot(direction_to_player)))
-	
 	if angle > vision_angle / 2:
 		return false
 	
@@ -107,19 +114,39 @@ func _set_new_wander_direction():
 		0,
 		randf_range(-1, 1)
 	).normalized()
-	
 	wander_timer = randf_range(2.0, 5.0)
 
 func take_damage(damage: int):
+	if is_dead:
+		return
+
 	hp -= damage
-	print("мышь получила урон, осталось хп: ", hp)
+	print("мышь получила урон, осталось хп:", hp)
 	_update_hp_label()
-	
-	if hp <= 0:
+
+	if hp > 0:
+		if hit_sound:
+			hit_sound.play()
+	else:
 		die()
 
 func die():
+	if is_dead:
+		return
+	is_dead = true
+
 	print("мышь умерла")
+
+	player = get_tree().get_first_node_in_group("player")
+	if player and player.has_method("on_mouse_killed"):
+		player.on_mouse_killed()
+
+	if death_sound:
+		death_sound.play()
+		await get_tree().create_timer(death_sound.stream.get_length()).timeout
+	else:
+		await get_tree().create_timer(0.5).timeout
+
 	queue_free()
 
 func _update_hp_label():

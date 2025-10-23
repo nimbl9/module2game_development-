@@ -1,8 +1,8 @@
 [gd_scene load_steps=5 format=3 uid="uid://btgqgyq3fah72"]
 
 [ext_resource type="Script" uid="uid://wwgphncdmd43" path="res://menu/main_menu.gd" id="1_7vrkn"]
-[ext_resource type="Texture2D" uid="uid://c8vj17eecrgce" path="res://models/menu.png" id="2_o5w3e"]
-[ext_resource type="FontFile" uid="uid://crxqyvmyb2uuc" path="res://models/font/Jaro-Regular-VariableFont_opsz.ttf" id="3_fu7sn"]
+[ext_resource type="Texture2D" uid="uid://c8vj17eecrgce" path="res://menu/menu.png" id="2_o5w3e"]
+[ext_resource type="FontFile" uid="uid://crxqyvmyb2uuc" path="res://font/Jaro-Regular-VariableFont_opsz.ttf" id="3_fu7sn"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jix8l"]
 bg_color = Color(0.6, 0.6, 0.6, 0)

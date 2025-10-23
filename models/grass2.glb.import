@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://cukk0vw60y3jf"
-path="res://.godot/imported/cat.glb-6044834ee6e19bcac090a86366ac26ed.scn"
+uid="uid://cjihis7oenk4w"
+path="res://.godot/imported/grass2.glb-61277f2043c77be85ba856387459022f.scn"
 
 [deps]
 
-source_file="res://models/cat.glb"
-dest_files=["res://.godot/imported/cat.glb-6044834ee6e19bcac090a86366ac26ed.scn"]
+source_file="res://models/grass2.glb"
+dest_files=["res://.godot/imported/grass2.glb-61277f2043c77be85ba856387459022f.scn"]
 
 [params]
 
@@ -18,7 +18,7 @@ nodes/root_name=""
 nodes/root_script=null
 nodes/apply_root_scale=true
 nodes/root_scale=1.0
-nodes/import_as_skeleton_bones=false
+nodes/import_as_skeleton_bones=true
 nodes/use_name_suffixes=true
 nodes/use_node_type_suffixes=true
 meshes/ensure_tangents=true
@@ -34,9 +34,9 @@ animation/trimming=false
 animation/remove_immutable_tracks=true
 animation/import_rest_as_RESET=false
 import_script/path=""
-materials/extract=0
-materials/extract_format=0
-materials/extract_path=""
+materials/extract=1
+materials/extract_format=1
+materials/extract_path="res://models"
 _subresources={}
 gltf/naming_version=2
 gltf/embedded_image_handling=1

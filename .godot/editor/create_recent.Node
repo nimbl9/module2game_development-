@@ -1,3 +1,7 @@
+Label
+VBoxContainer
+CanvasLayer
+AudioStreamPlayer3D
 MeshInstance3D
 NavigationRegion3D
 Label3D
@@ -6,9 +10,5 @@ Camera3D
 CharacterBody3D
 DirectionalLight3D
 StaticBody3D
-Label
 Button
-VBoxContainer
 CenterContainer
-TextureRect
-CanvasLayer
